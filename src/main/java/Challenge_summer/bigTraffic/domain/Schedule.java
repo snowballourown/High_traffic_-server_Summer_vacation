@@ -6,8 +6,9 @@ import jakarta.persistence.*;
 public class Schedule {
 
 
-    @Id @GeneratedValue
+    @Id     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "SCHEDULE_ID")
+
     Long Id;
 
     @ManyToOne
