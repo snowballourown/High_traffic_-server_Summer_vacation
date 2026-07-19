@@ -10,7 +10,22 @@ public class Seat {
     @Column(name = "SEAT_ID")
     Long Id;
 
+    @Column(nullable = false)
+    String SeatName;
 
+    public Long getId() {
+        return Id;
+    }
 
+    public void setId(Long id) {
+        Id = id;
+    }
 
+    public String getSeatName() {
+        return SeatName;
+    }
+
+    public void setSeatName(String seatName) {
+        SeatName = seatName;
+    }
 }

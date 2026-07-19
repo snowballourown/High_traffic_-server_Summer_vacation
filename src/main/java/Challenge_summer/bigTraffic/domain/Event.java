@@ -2,6 +2,8 @@ package Challenge_summer.bigTraffic.domain;
 
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(
@@ -13,20 +15,16 @@ import jakarta.persistence.*;
         }
 )
 public class Event {
-    public Long getId() {
-        return Id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     // 공연
+    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "EVENT_ID")
     Long Id;
 
+    @Setter
+    @Getter
     @Column(name = "eventName", nullable = false)  //겹치는 값이 못들어오게 막음
     String name;
 

@@ -2,11 +2,10 @@ package Challenge_summer.bigTraffic.controller;
 
 
 import Challenge_summer.bigTraffic.domain.Event;
-import Challenge_summer.bigTraffic.dto.EventCreateRequest;
+import Challenge_summer.bigTraffic.dto.event.EventCreateRequest;
+import Challenge_summer.bigTraffic.dto.event.EventRequest;
 import Challenge_summer.bigTraffic.service.EventService;
-import jakarta.websocket.server.PathParam;
 import lombok.AllArgsConstructor;
-import lombok.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -22,8 +21,8 @@ public class EventController {
 
 
     @PostMapping("/event")
-    public ResponseEntity<Void> SaveEvent(@RequestBody EventCreateRequest eventCreateRequest) {
-        eventService.EventSave(eventCreateRequest);
+    public ResponseEntity<Void> SaveEvent(@RequestBody EventRequest eventRequest) {
+        eventService.EventSave(eventRequest);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 

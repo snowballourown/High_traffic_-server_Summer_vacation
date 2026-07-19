@@ -1,20 +1,48 @@
 package Challenge_summer.bigTraffic.repository;
 
+
 import Challenge_summer.bigTraffic.domain.Member;
+import jakarta.persistence.EntityManager;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface MemberRepository
-{
 
-    public void createMember(Member member);
+@Repository
+@AllArgsConstructor
+public class MemberRepository  {
 
-    public void removeMember(Member member);
+    private final EntityManager em;
 
-    public Optional<Member> findById(Long id);
 
-    public List<Member> findByAll();
+    public void createMember(Member member) {
+        em.persist(member);
+    }
 
-    public List<Member> findByName(String name);
+    public void removeMember(Member member) {
+        em.remove(member);
+    }
+
+    public Optional<Member> findById(Long id) {
+        Member member = em.find(Member.class, id);
+        return Optional.ofNullable(member);
+    }
+
+    public List<Member> findByName(String name) {
+        return em.createQuery(
+                        "select m from Member m where m.name = :name",
+                        Member.class
+                )
+                .setParameter("name", name)
+                .getResultList();
+
+    }
+
+    public List<Member> findByAll() {
+        return em.createQuery("select m from Member m").getResultList();
+    }
+
+
 }

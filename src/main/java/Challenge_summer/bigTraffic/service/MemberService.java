@@ -2,7 +2,7 @@ package Challenge_summer.bigTraffic.service;
 
 
 import Challenge_summer.bigTraffic.domain.Member;
-import Challenge_summer.bigTraffic.dto.MemberCreateRequest;
+import Challenge_summer.bigTraffic.dto.member.MemberCreateRequest;
 import Challenge_summer.bigTraffic.repository.MemberRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -24,7 +24,6 @@ public class MemberService {
         Member member = new Member();
         member.setName(memberCreateRequest.getName());
         memberRepository.createMember(member);
-
     }
 
     @Transactional(readOnly = true)

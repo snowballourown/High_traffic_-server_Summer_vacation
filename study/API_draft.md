@@ -52,7 +52,7 @@ form형태를 쓰지는 않을 꺼니 -> POST, GET으로 단정지을 필요없�
 2. 이미 선점된 좌석은 다른 사용자가 다시 선점할 수 없다.
 4. 선점 시간이 지나면 좌석은 다시 예약 가능한 상태가 된다.
 
-* 공연 좌석 선점 요청 POST : /events/{eventId}/schedules/{scheduleId}/schedule-seats/{scheduleSeatId}/holds
+* 공연 좌석 선점 요청 POST : /schedule-seats/{scheduleSeatId}/holds
 
 
 
@@ -83,12 +83,21 @@ form형태를 쓰지는 않을 꺼니 -> POST, GET으로 단정지을 필요없�
 2. 같은 결제 요청이 여러 번 들어와도 결제는 한 번만 처리되어야 한다.
 
 
-| 기능 | Method | URI | Request | Response | Status |
-|---|---|---|---|---|---|
-| 회원 등록 | POST | /members | name | 없음 | 201 Created |
-| 공연 목록 조회 | GET | /events | 없음 | 공연 목록 | 200 OK |
-| 공연 회차 조회 | GET | /events/{eventId}/schedules | 없음 | 회차 목록 | 200 OK |
-| 좌석 상태 조회 | GET | /events/{eventId}/schedules/{scheduleId}/schedule-seats | 없음 | 좌석 상태 목록 | 200 OK |
-| 좌석 선점 | POST | /events/{eventId}/schedules/{scheduleId}/schedule-seats/{scheduleSeatId}/holds | memberId | holdId, expiresAt | 201 Created |
-| 결제 요청 | POST | /payments | holdId, memberId | 없음 | 201 Created |
-| 예약 조회 | GET | /members/{memberId}/reservations | 없음 | 예약 목록 | 200 OK |
+
+
+# API 표 
+
+| 기능 | Method | URI | Request | Response | Status | 실험 포인트 | 
+|---|---|---|---|--|---|----|
+| 회원 등록 | POST | /members | name | 없음 | 201 Created |    |
+| 공연 목록 조회 | GET | /events | 없음 | 공연 목록 | 200 OK |  |
+| 공연 회차 조회 | GET | /events/{eventId}/schedules | 없음 | 회차 목록 | 200 OK |조회 요청이 몰릴 때 DB 부하 확인 |
+| 좌석 상태 조회 | GET | /events/{eventId}/schedules/{scheduleId}/schedule-seats | 없음 | 좌석 상태 목록 | 200 OK |  |
+| 좌석 선점 | POST | schedule-seats/{scheduleSeatId}/holds | memberId | holdId, expiresAt | 201 Created | 같은 좌석 동시 선점 문제 확인 |
+| 결제 요청 | POST | /payments | holdId, memberId | paymentId, reservationId, status | 201 Created | 같은 결제 요청이 여러 번 들어올 때 중복 처리 확인 |
+| 예약 조회 | GET | /members/{memberId}/reservations | 없음 | 예약 목록 | 200 OK |  | 
+
+
+
+
+

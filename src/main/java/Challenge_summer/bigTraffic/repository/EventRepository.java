@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @AllArgsConstructor
@@ -18,11 +19,25 @@ public class EventRepository {
         em.persist(event);
     }
 
-    public Event findByEvent(Long Id) {
+    public Event findById(Long Id) {
         return em.find(Event.class, Id);
     }
 
-    public List<Event> findByAll() {
+
+
+    public Optional<Event> findByName(String name) {
+        List<Event> result = em.createQuery(
+                        "select e from Event e where e.name = :name",
+                        Event.class
+                )
+                .setParameter("name", name)
+                .getResultList();
+
+        return result.stream().findAny(); // 조건에 맞는거 아무거나 하나 꺼내는것
+
+    }
+
+    public List<Event> findAll() {
         return em.createQuery("select m from Event m", Event.class).getResultList();
     }
 
