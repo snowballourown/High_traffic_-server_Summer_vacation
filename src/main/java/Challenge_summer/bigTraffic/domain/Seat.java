@@ -8,24 +8,24 @@ public class Seat {
 
     @Id    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "SEAT_ID")
-    Long Id;
+    Long id;
 
     @Column(nullable = false)
-    String SeatName;
+    String seatName;
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getSeatName() {
-        return SeatName;
+        return seatName;
     }
 
     public void setSeatName(String seatName) {
-        SeatName = seatName;
+        this.seatName = seatName;
     }
 }

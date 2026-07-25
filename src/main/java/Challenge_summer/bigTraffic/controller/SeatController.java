@@ -2,7 +2,6 @@ package Challenge_summer.bigTraffic.controller;
 
 
 import Challenge_summer.bigTraffic.domain.Member;
-import Challenge_summer.bigTraffic.dto.member.MemberCreateRequest;
 import Challenge_summer.bigTraffic.dto.seat.SeatCreateRequest;
 import Challenge_summer.bigTraffic.dto.seat.SeatResponse;
 import Challenge_summer.bigTraffic.service.SeatService;
@@ -33,7 +32,7 @@ public class SeatController {
     }
 
     @PostMapping("/seats")
-    public ResponseEntity<Void> creatSeat(@RequestBody SeatCreateRequest seatCreateRequest) {
+    public ResponseEntity<Void> createSeat(@RequestBody SeatCreateRequest seatCreateRequest) {
         seatService.SeatCreate(seatCreateRequest);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }

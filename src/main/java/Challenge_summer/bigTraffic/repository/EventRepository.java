@@ -19,8 +19,8 @@ public class EventRepository {
         em.persist(event);
     }
 
-    public Event findById(Long Id) {
-        return em.find(Event.class, Id);
+    public Optional<Event> findById(Long Id) {
+        return Optional.ofNullable(em.find(Event.class, Id));
     }
 
 

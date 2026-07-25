@@ -404,7 +404,7 @@ Location 위치로 자동 이동(리다이렉트)
 * 중복 주문 대신에 결과 화면만 GET으로 다시 요청 (해결법)
 
 
-* ![img_2.png](img_2.png)
+* ![img_2.png](cf_picture/img_2.png)
 
 
 

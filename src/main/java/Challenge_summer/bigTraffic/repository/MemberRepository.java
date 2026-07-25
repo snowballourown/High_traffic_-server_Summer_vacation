@@ -21,7 +21,8 @@ public class MemberRepository  {
         em.persist(member);
     }
 
-    public void removeMember(Member member) {
+    public void removeMember(Long id) {
+        Member member = em.find(Member.class, id);
         em.remove(member);
     }
 

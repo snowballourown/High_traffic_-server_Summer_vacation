@@ -2,33 +2,31 @@ package Challenge_summer.bigTraffic.domain;
 
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
 @Entity
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Member {  //index까지 적는편이라함
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "MEMBER_ID")
-    private Long Id;
+    private Long id;
 
     @Column
     private String name;
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
-    public void setId(Long id) {
-        Id = id;
-    }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public Member(String name) {
         this.name = name;
     }
-
-
 }

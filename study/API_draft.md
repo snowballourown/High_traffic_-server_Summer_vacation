@@ -98,6 +98,3 @@ form형태를 쓰지는 않을 꺼니 -> POST, GET으로 단정지을 필요없�
 | 예약 조회 | GET | /members/{memberId}/reservations | 없음 | 예약 목록 | 200 OK |  | 
 
 
-
-
-

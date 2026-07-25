@@ -10,8 +10,8 @@
 
 
 ### 요구사항 정리
-![img.png](img.png)
-![img_1.png](img_1.png)
+![img.png](cf_picture/img.png)
+![img_1.png](cf_picture/img_1.png)
 
 요구사항 하는이유 : 내가 뭘 만들 건지 기준선을 잡기 위해서
 

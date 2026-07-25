@@ -2,27 +2,30 @@ package Challenge_summer.bigTraffic.domain;
 
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
 
 @Entity
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Reservation {
 
-
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "RESERVATION_ID")
-    Long Id;
-
-    @ManyToOne
-    @JoinColumn(name = "MEMBER_ID")
-    private Member member;
-
+    private Long id;
 
     @OneToOne
-    @JoinColumn(name = "PAYMENT_ID")
+    @JoinColumn(name = "PAYMENT_ID", unique = true)
     private Payment payment;
 
+    private LocalDateTime reservedAt;
 
-    @OneToOne
-    @JoinColumn(name = "SCHEDULE_SEAT_ID")
-    private ScheduleSeat scheduleSeat;
-
+    public Reservation(Payment payment) {
+        this.payment = payment;
+        this.reservedAt = LocalDateTime.now();
+    }
 }

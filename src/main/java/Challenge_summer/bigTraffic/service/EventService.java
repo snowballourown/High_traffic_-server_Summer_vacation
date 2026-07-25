@@ -19,8 +19,7 @@ public class EventService {
 
     @Transactional
     public void EventSave(EventRequest eventCreateRequest) {
-        Event event = new Event();
-        event.setName(eventCreateRequest.getName());
+        Event event = new Event(eventCreateRequest.name());
         eventRepository.CreateEvent(event);
     }
 
@@ -29,7 +28,7 @@ public class EventService {
         Event event = eventRepository.findByName(name)
                 .orElseThrow(() -> new IllegalArgumentException("공연이 존재하지 않습니다."));
 
-        EventResponse eventResponse = new EventResponse(event.getName());
+        EventResponse eventResponse = new EventResponse(event.getId(), event.getName());
 
         return eventResponse;
     }
@@ -37,12 +36,14 @@ public class EventService {
 
     @Transactional(readOnly = true)
     public Event findById(Long Id) {
-        return eventRepository.findById(Id);
+        return eventRepository.findById(Id).get();
     }
 
     @Transactional(readOnly = true)
     public List<Event> findByAll() {
         return eventRepository.findAll();
     }
+
+
 
 }

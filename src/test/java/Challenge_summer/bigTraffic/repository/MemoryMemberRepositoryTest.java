@@ -17,8 +17,8 @@ public class MemoryMemberRepositoryTest {
 
     @Test
     public void save() {
-        Member member = new Member();
-        member.setName("spring");
+        Member member = new Member("Spring");
+
 
         memberRepository.createMember(member);
 
@@ -28,12 +28,10 @@ public class MemoryMemberRepositoryTest {
 
     @Test
     void findByName() {
-        Member member = new Member();
-        member.setName("spring1");
+        Member member = new Member("spring1");
         memberRepository.createMember(member);
 
-        Member member1 = new Member();
-        member1.setName("spring2");
+        Member member1 = new Member("spring2");
         memberRepository.createMember(member1);
 
 

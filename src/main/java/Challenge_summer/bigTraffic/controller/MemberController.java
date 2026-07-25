@@ -2,7 +2,7 @@ package Challenge_summer.bigTraffic.controller;
 
 
 import Challenge_summer.bigTraffic.domain.Member;
-import Challenge_summer.bigTraffic.dto.member.MemberCreateRequest;
+import Challenge_summer.bigTraffic.dto.member.MemberRequest;
 import Challenge_summer.bigTraffic.service.MemberService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -18,6 +18,8 @@ public class MemberController {
 
     private final MemberService memberService;
 
+
+//    DTO로 바꾸짜 ->####
     @GetMapping("/members")
     @ResponseBody
     public List<Member> memberAllFind() {
@@ -26,7 +28,7 @@ public class MemberController {
 
 
     @PostMapping("/members")
-    public ResponseEntity<Void> createMember(@RequestBody MemberCreateRequest memberDto) {
+    public ResponseEntity<Void> createMember(@RequestBody MemberRequest memberDto) {
         memberService.createMember(memberDto);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }

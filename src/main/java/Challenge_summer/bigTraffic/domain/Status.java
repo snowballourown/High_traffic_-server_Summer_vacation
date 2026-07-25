@@ -2,5 +2,7 @@ package Challenge_summer.bigTraffic.domain;
 
 public enum Status {
 
-    HOLD, SUCCESS, FAIL
+    AVAILABLE,  // 예약 가능 상태
+    HELD    ,   // 선점된 상태
+    CONFIRMED   // 예약 확정 상태
 }

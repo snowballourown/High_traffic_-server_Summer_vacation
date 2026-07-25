@@ -2,7 +2,6 @@ package Challenge_summer.bigTraffic.controller;
 
 
 import Challenge_summer.bigTraffic.domain.Event;
-import Challenge_summer.bigTraffic.dto.event.EventCreateRequest;
 import Challenge_summer.bigTraffic.dto.event.EventRequest;
 import Challenge_summer.bigTraffic.service.EventService;
 import lombok.AllArgsConstructor;
@@ -26,6 +25,8 @@ public class EventController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
+
+//  ################  ## 이것도 고칠것
     @GetMapping("/event")
     @ResponseBody
     public List<Event> findAll() {
