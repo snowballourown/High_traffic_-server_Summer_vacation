@@ -216,3 +216,63 @@ JPA가 PESSIMISTIC_WRITE를 요청
 낙관적 락의 충돌 결과 = 예외
 비관적 락의 충돌 결과 = 대기, 경우에 따라 타임아웃이나 데드락
 ```
+### 8.결과 
+- 낙관적 락 (@Version 추가)
+![img.png](img.png)
+- ![img_1.png](img_1.png)
+
+
+- 비관적 락()
+![img_2.png](img_2.png)
+- ![img_3.png](img_3.png)
+- ![img_4.png](img_4.png)
+- ![img_5.png](img_5.png)
+
+### -> SQL 표시
+
+Hibernate:  
+select    
+m1_0.member_id,   
+m1_0.name  
+from  
+member m1_0  
+where  
+m1_0.member_id=?  
+
+Hibernate:   
+select   
+ss1_0.schedule_seat_id,  
+ss1_0.name,  
+s1_0.schedule_id,  
+e1_0.event_id,   
+e1_0.event_name,  
+s1_0.start_time,  
+s2_0.seat_id,  
+s2_0.seat_name,  
+ss1_0.status  
+from  
+schedule_seat ss1_0
+
+left join      
+schedule s1_0   
+on s1_0.schedule_id=ss1_0.schedule_id   
+
+left join     
+event e1_0    
+on e1_0.event_id=s1_0.event_id   
+
+left join   
+seat s2_0   
+on s2_0.seat_id=ss1_0.seat_id   
+
+where
+ss1_0.schedule_seat_id=?   
+for updateof ss1_0     -> 단순 조회가아닌 수정할려고 조회와 동시에 락을 건거임    
+IllegalArgumentException: 선점할 수 없는 좌석입니다.
+
+
+
+최종 결과 
+![img_6.png](img_6.png)
+
+

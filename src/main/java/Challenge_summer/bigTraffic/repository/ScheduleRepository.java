@@ -1,9 +1,9 @@
-package Challenge_summer.bigTraffic.repository;
+package challenge_summer.bigtraffic.repository;
 
 
-import Challenge_summer.bigTraffic.domain.Event;
-import Challenge_summer.bigTraffic.domain.Member;
-import Challenge_summer.bigTraffic.domain.Schedule;
+import challenge_summer.bigtraffic.domain.Event;
+import challenge_summer.bigtraffic.domain.Member;
+import challenge_summer.bigtraffic.domain.Schedule;
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;

@@ -1,18 +1,22 @@
-package Challenge_summer.bigTraffic.repository;
+package challenge_summer.bigtraffic.repository;
 
-import Challenge_summer.bigTraffic.domain.Member;
-import lombok.AllArgsConstructor;
+import challenge_summer.bigtraffic.domain.Member;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 
-@AllArgsConstructor
-public class MemoryMemberRepositoryTest {
+@SpringBootTest
+@Transactional
+class MemoryMemberRepositoryTest {
 
-    private final MemberRepository memberRepository;
+    @Autowired
+    MemberRepository memberRepository;
 
 
     @Test
@@ -22,7 +26,7 @@ public class MemoryMemberRepositoryTest {
 
         memberRepository.createMember(member);
 
-        Optional<Member> result = memberRepository.findById(member.getId());
+        Member result = memberRepository.findById(member.getId()).orElseThrow();
         assertEquals(member, result);
     }
 

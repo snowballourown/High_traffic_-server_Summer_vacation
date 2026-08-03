@@ -1,8 +1,9 @@
-package Challenge_summer.bigTraffic.repository;
+package challenge_summer.bigtraffic.repository;
 
 
-import Challenge_summer.bigTraffic.domain.ScheduleSeat;
+import challenge_summer.bigtraffic.domain.ScheduleSeat;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.LockModeType;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -30,6 +31,15 @@ public class ScheduleSeatRepository {
                 .getResultList();
     }
 
+    public Optional<ScheduleSeat> findByIdWithPessimisticLock(Long id) {
+        return Optional.ofNullable(
+                em.find(
+                        ScheduleSeat.class,
+                        id,
+                        LockModeType.PESSIMISTIC_WRITE
+                )
+        );
+    }
 
 
 

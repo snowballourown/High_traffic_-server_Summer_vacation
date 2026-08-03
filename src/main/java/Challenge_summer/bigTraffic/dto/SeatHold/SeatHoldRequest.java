@@ -1,7 +1,7 @@
-package Challenge_summer.bigTraffic.dto.SeatHold;
+package challenge_summer.bigtraffic.dto.seathold;
 
 
-import Challenge_summer.bigTraffic.domain.Member;
+import challenge_summer.bigtraffic.domain.Member;
 
 public record SeatHoldRequest (
         Long memberId,

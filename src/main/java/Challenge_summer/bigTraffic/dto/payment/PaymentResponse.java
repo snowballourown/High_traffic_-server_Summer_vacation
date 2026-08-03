@@ -1,7 +1,7 @@
-package Challenge_summer.bigTraffic.dto.payment;
+package challenge_summer.bigtraffic.dto.payment;
 
 
-import Challenge_summer.bigTraffic.domain.PaymentStatus;
+import challenge_summer.bigtraffic.domain.PaymentStatus;
 
 public record PaymentResponse(
         Long id,

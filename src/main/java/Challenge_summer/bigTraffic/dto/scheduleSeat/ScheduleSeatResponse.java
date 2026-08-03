@@ -1,6 +1,6 @@
-package Challenge_summer.bigTraffic.dto.scheduleSeat;
+package challenge_summer.bigtraffic.dto.scheduleseat;
 
-import Challenge_summer.bigTraffic.domain.Status;
+import challenge_summer.bigtraffic.domain.Status;
 
 public record ScheduleSeatResponse(
         Long scheduleSeatId,

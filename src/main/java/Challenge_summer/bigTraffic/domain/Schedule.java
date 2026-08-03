@@ -1,6 +1,6 @@
-package Challenge_summer.bigTraffic.domain;
+package challenge_summer.bigtraffic.domain;
 
-import Challenge_summer.bigTraffic.dto.schedule.ScheduleRequest;
+import challenge_summer.bigtraffic.dto.schedule.ScheduleRequest;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;

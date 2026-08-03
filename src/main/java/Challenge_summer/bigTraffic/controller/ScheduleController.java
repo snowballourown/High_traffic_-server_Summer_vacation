@@ -1,9 +1,9 @@
-package Challenge_summer.bigTraffic.controller;
+package challenge_summer.bigtraffic.controller;
 
 
-import Challenge_summer.bigTraffic.dto.schedule.ScheduleRequest;
-import Challenge_summer.bigTraffic.dto.schedule.ScheduleResponse;
-import Challenge_summer.bigTraffic.service.ScheduleService;
+import challenge_summer.bigtraffic.dto.schedule.ScheduleRequest;
+import challenge_summer.bigtraffic.dto.schedule.ScheduleResponse;
+import challenge_summer.bigtraffic.service.ScheduleService;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

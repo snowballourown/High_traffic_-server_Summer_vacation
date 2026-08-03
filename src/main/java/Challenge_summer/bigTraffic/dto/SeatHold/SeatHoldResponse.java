@@ -1,4 +1,4 @@
-package Challenge_summer.bigTraffic.dto.SeatHold;
+package challenge_summer.bigtraffic.dto.seathold;
 
 import java.time.LocalDateTime;
 

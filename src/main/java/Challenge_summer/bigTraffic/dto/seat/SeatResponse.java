@@ -1,4 +1,4 @@
-package Challenge_summer.bigTraffic.dto.seat;
+package challenge_summer.bigtraffic.dto.seat;
 
 
 

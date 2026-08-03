@@ -1,10 +1,10 @@
-package Challenge_summer.bigTraffic.controller;
+package challenge_summer.bigtraffic.controller;
 
-import Challenge_summer.bigTraffic.dto.ReservationResponse;
-import Challenge_summer.bigTraffic.dto.payment.PaymentRequest;
-import Challenge_summer.bigTraffic.dto.payment.PaymentResponse;
-import Challenge_summer.bigTraffic.service.PaymentService;
-import Challenge_summer.bigTraffic.service.ReservationService;
+import challenge_summer.bigtraffic.dto.ReservationResponse;
+import challenge_summer.bigtraffic.dto.payment.PaymentRequest;
+import challenge_summer.bigtraffic.dto.payment.PaymentResponse;
+import challenge_summer.bigtraffic.service.PaymentService;
+import challenge_summer.bigtraffic.service.ReservationService;
 import jakarta.websocket.server.PathParam;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

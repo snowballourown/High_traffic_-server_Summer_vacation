@@ -1,8 +1,8 @@
-package Challenge_summer.bigTraffic.controller;
+package challenge_summer.bigtraffic.controller;
 
 
-import Challenge_summer.bigTraffic.dto.ReservationResponse;
-import Challenge_summer.bigTraffic.service.ReservationService;
+import challenge_summer.bigtraffic.dto.ReservationResponse;
+import challenge_summer.bigtraffic.service.ReservationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

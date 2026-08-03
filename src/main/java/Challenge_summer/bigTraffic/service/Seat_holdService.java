@@ -1,14 +1,14 @@
-package Challenge_summer.bigTraffic.service;
+package challenge_summer.bigtraffic.service;
 
 
-import Challenge_summer.bigTraffic.domain.Member;
-import Challenge_summer.bigTraffic.domain.ScheduleSeat;
-import Challenge_summer.bigTraffic.domain.Seat_hold;
-import Challenge_summer.bigTraffic.domain.Status;
-import Challenge_summer.bigTraffic.dto.SeatHold.SeatHoldResponse;
-import Challenge_summer.bigTraffic.repository.MemberRepository;
-import Challenge_summer.bigTraffic.repository.ScheduleSeatRepository;
-import Challenge_summer.bigTraffic.repository.Seat_holdRepository;
+import challenge_summer.bigtraffic.domain.Member;
+import challenge_summer.bigtraffic.domain.ScheduleSeat;
+import challenge_summer.bigtraffic.domain.Seat_hold;
+import challenge_summer.bigtraffic.domain.Status;
+import challenge_summer.bigtraffic.dto.seathold.SeatHoldResponse;
+import challenge_summer.bigtraffic.repository.MemberRepository;
+import challenge_summer.bigtraffic.repository.ScheduleSeatRepository;
+import challenge_summer.bigtraffic.repository.Seat_holdRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,7 +30,7 @@ public class Seat_holdService {
         Member member = memberRepository.findById(memberIdRequest)
                 .orElseThrow(() -> new IllegalArgumentException("해당 회원이 존재하지 않습니다."));
 
-        ScheduleSeat scheduleSeat = scheduleSeatRepository.findById(scheduleSeatIdRequest)
+        ScheduleSeat scheduleSeat = scheduleSeatRepository.findByIdWithPessimisticLock(scheduleSeatIdRequest)
                 .orElseThrow(() -> new IllegalArgumentException("해당 예약은 존재하지않습니다"));
 
 

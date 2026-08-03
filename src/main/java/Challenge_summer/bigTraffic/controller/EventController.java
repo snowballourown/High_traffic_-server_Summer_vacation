@@ -1,9 +1,9 @@
-package Challenge_summer.bigTraffic.controller;
+package challenge_summer.bigtraffic.controller;
 
 
-import Challenge_summer.bigTraffic.domain.Event;
-import Challenge_summer.bigTraffic.dto.event.EventRequest;
-import Challenge_summer.bigTraffic.service.EventService;
+import challenge_summer.bigtraffic.domain.Event;
+import challenge_summer.bigtraffic.dto.event.EventRequest;
+import challenge_summer.bigtraffic.service.EventService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

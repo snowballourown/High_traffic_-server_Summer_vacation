@@ -1,9 +1,9 @@
-package Challenge_summer.bigTraffic.scheduler;
+package challenge_summer.bigtraffic.scheduler;
 
 
-import Challenge_summer.bigTraffic.domain.Seat_hold;
-import Challenge_summer.bigTraffic.domain.Status;
-import Challenge_summer.bigTraffic.repository.Seat_holdRepository;
+import challenge_summer.bigtraffic.domain.Seat_hold;
+import challenge_summer.bigtraffic.domain.Status;
+import challenge_summer.bigtraffic.repository.Seat_holdRepository;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;

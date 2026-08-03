@@ -1,4 +1,4 @@
-package Challenge_summer.bigTraffic.dto.member;
+package challenge_summer.bigtraffic.dto.member;
 
 
 

@@ -1,4 +1,4 @@
-package Challenge_summer.bigTraffic;
+package challenge_summer.bigtraffic;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

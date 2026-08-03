@@ -1,10 +1,10 @@
-package Challenge_summer.bigTraffic.service;
+package challenge_summer.bigtraffic.service;
 
 
-import Challenge_summer.bigTraffic.domain.Event;
-import Challenge_summer.bigTraffic.dto.event.EventRequest;
-import Challenge_summer.bigTraffic.dto.event.EventResponse;
-import Challenge_summer.bigTraffic.repository.EventRepository;
+import challenge_summer.bigtraffic.domain.Event;
+import challenge_summer.bigtraffic.dto.event.EventRequest;
+import challenge_summer.bigtraffic.dto.event.EventResponse;
+import challenge_summer.bigtraffic.repository.EventRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

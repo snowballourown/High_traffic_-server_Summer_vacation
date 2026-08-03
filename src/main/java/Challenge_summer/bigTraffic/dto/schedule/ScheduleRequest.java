@@ -1,4 +1,4 @@
-package Challenge_summer.bigTraffic.dto.schedule;
+package challenge_summer.bigtraffic.dto.schedule;
 
 
 import lombok.Getter;

@@ -1,7 +1,7 @@
-package Challenge_summer.bigTraffic.service;
+package challenge_summer.bigtraffic.service;
 
-import Challenge_summer.bigTraffic.dto.ReservationResponse;
-import Challenge_summer.bigTraffic.repository.ReservationRepository;
+import challenge_summer.bigtraffic.dto.ReservationResponse;
+import challenge_summer.bigtraffic.repository.ReservationRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

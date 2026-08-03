@@ -1,7 +1,7 @@
-package Challenge_summer.bigTraffic.repository;
+package challenge_summer.bigtraffic.repository;
 
 
-import Challenge_summer.bigTraffic.domain.Seat;
+import challenge_summer.bigtraffic.domain.Seat;
 import jakarta.persistence.EntityManager;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;

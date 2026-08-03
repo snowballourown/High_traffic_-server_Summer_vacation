@@ -1,4 +1,4 @@
-package Challenge_summer.bigTraffic.dto;
+package challenge_summer.bigtraffic.dto;
 
 import java.time.LocalDateTime;
 

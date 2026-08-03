@@ -1,8 +1,8 @@
-package Challenge_summer.bigTraffic.dto.schedule;
+package challenge_summer.bigtraffic.dto.schedule;
 
 
-import Challenge_summer.bigTraffic.domain.Event;
-import Challenge_summer.bigTraffic.domain.Schedule;
+import challenge_summer.bigtraffic.domain.Event;
+import challenge_summer.bigtraffic.domain.Schedule;
 import lombok.Getter;
 
 import java.time.LocalDateTime;

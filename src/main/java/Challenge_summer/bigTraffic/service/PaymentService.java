@@ -1,16 +1,16 @@
-package Challenge_summer.bigTraffic.service;
+package challenge_summer.bigtraffic.service;
 
 
-import Challenge_summer.bigTraffic.domain.Payment;
-import Challenge_summer.bigTraffic.domain.Reservation;
-import Challenge_summer.bigTraffic.domain.Seat_hold;
-import Challenge_summer.bigTraffic.domain.Status;
-import Challenge_summer.bigTraffic.dto.ReservationResponse;
-import Challenge_summer.bigTraffic.dto.payment.PaymentRequest;
-import Challenge_summer.bigTraffic.dto.payment.PaymentResponse;
-import Challenge_summer.bigTraffic.repository.PaymentRepository;
-import Challenge_summer.bigTraffic.repository.ReservationRepository;
-import Challenge_summer.bigTraffic.repository.Seat_holdRepository;
+import challenge_summer.bigtraffic.domain.Payment;
+import challenge_summer.bigtraffic.domain.Reservation;
+import challenge_summer.bigtraffic.domain.Seat_hold;
+import challenge_summer.bigtraffic.domain.Status;
+import challenge_summer.bigtraffic.dto.ReservationResponse;
+import challenge_summer.bigtraffic.dto.payment.PaymentRequest;
+import challenge_summer.bigtraffic.dto.payment.PaymentResponse;
+import challenge_summer.bigtraffic.repository.PaymentRepository;
+import challenge_summer.bigtraffic.repository.ReservationRepository;
+import challenge_summer.bigtraffic.repository.Seat_holdRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

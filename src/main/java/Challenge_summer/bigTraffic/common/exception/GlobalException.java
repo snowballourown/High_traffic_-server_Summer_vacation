@@ -1,4 +1,4 @@
-package Challenge_summer.bigTraffic.common.exception;
+package challenge_summer.bigtraffic.common.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

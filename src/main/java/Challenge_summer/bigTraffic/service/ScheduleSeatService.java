@@ -1,12 +1,12 @@
-package Challenge_summer.bigTraffic.service;
+package challenge_summer.bigtraffic.service;
 
 
-import Challenge_summer.bigTraffic.domain.*;
-import Challenge_summer.bigTraffic.dto.scheduleSeat.ScheduleSeatRequest;
-import Challenge_summer.bigTraffic.dto.scheduleSeat.ScheduleSeatResponse;
-import Challenge_summer.bigTraffic.repository.ScheduleRepository;
-import Challenge_summer.bigTraffic.repository.ScheduleSeatRepository;
-import Challenge_summer.bigTraffic.repository.SeatRepository;
+import challenge_summer.bigtraffic.domain.*;
+import challenge_summer.bigtraffic.dto.scheduleseat.ScheduleSeatRequest;
+import challenge_summer.bigtraffic.dto.scheduleseat.ScheduleSeatResponse;
+import challenge_summer.bigtraffic.repository.ScheduleRepository;
+import challenge_summer.bigtraffic.repository.ScheduleSeatRepository;
+import challenge_summer.bigtraffic.repository.SeatRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

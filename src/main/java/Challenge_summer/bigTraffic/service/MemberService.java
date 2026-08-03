@@ -1,10 +1,10 @@
-package Challenge_summer.bigTraffic.service;
+package challenge_summer.bigtraffic.service;
 
 
-import Challenge_summer.bigTraffic.domain.Member;
-import Challenge_summer.bigTraffic.dto.member.MemberRequest;
-import Challenge_summer.bigTraffic.dto.member.MemberResponse;
-import Challenge_summer.bigTraffic.repository.MemberRepository;
+import challenge_summer.bigtraffic.domain.Member;
+import challenge_summer.bigtraffic.dto.member.MemberRequest;
+import challenge_summer.bigtraffic.dto.member.MemberResponse;
+import challenge_summer.bigtraffic.repository.MemberRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

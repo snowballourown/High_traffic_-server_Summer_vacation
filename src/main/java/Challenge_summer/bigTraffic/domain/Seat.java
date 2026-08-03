@@ -1,9 +1,12 @@
-package Challenge_summer.bigTraffic.domain;
+package challenge_summer.bigtraffic.domain;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
 
 @Entity
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Seat {
 
     @Id    @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,6 +29,10 @@ public class Seat {
     }
 
     public void setSeatName(String seatName) {
+        this.seatName = seatName;
+    }
+
+    public Seat(String seatName) {
         this.seatName = seatName;
     }
 }

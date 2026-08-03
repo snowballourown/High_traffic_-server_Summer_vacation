@@ -1,9 +1,9 @@
-package Challenge_summer.bigTraffic.controller;
+package challenge_summer.bigtraffic.controller;
 
 
-import Challenge_summer.bigTraffic.dto.SeatHold.SeatHoldRequest;
-import Challenge_summer.bigTraffic.dto.SeatHold.SeatHoldResponse;
-import Challenge_summer.bigTraffic.service.Seat_holdService;
+import challenge_summer.bigtraffic.dto.seathold.SeatHoldRequest;
+import challenge_summer.bigtraffic.dto.seathold.SeatHoldResponse;
+import challenge_summer.bigtraffic.service.Seat_holdService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

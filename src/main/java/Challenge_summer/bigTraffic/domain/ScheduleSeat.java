@@ -1,4 +1,4 @@
-package Challenge_summer.bigTraffic.domain;
+package challenge_summer.bigtraffic.domain;
 
 
 import jakarta.persistence.*;
@@ -31,6 +31,9 @@ public class ScheduleSeat {
     @Enumerated(EnumType.STRING)
     @Setter
     private Status status;
+//
+//    @Version
+//    private Long Version;
 
 
     public ScheduleSeat(Seat seat, Schedule schedule, Status status) {

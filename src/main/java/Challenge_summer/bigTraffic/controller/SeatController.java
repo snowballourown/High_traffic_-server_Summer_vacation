@@ -1,10 +1,10 @@
-package Challenge_summer.bigTraffic.controller;
+package challenge_summer.bigtraffic.controller;
 
 
-import Challenge_summer.bigTraffic.domain.Member;
-import Challenge_summer.bigTraffic.dto.seat.SeatCreateRequest;
-import Challenge_summer.bigTraffic.dto.seat.SeatResponse;
-import Challenge_summer.bigTraffic.service.SeatService;
+import challenge_summer.bigtraffic.domain.Member;
+import challenge_summer.bigtraffic.dto.seat.SeatCreateRequest;
+import challenge_summer.bigtraffic.dto.seat.SeatResponse;
+import challenge_summer.bigtraffic.service.SeatService;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

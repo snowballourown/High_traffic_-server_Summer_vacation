@@ -1,6 +1,6 @@
-package Challenge_summer.bigTraffic;
+package challenge_summer.bigtraffic;
 
-import Challenge_summer.bigTraffic.domain.Reservation;
+import challenge_summer.bigtraffic.domain.Reservation;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;

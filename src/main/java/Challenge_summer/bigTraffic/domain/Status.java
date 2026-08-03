@@ -1,4 +1,4 @@
-package Challenge_summer.bigTraffic.domain;
+package challenge_summer.bigtraffic.domain;
 
 public enum Status {
 

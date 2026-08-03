@@ -1,10 +1,10 @@
-package Challenge_summer.bigTraffic.service;
+package challenge_summer.bigtraffic.service;
 
 
-import Challenge_summer.bigTraffic.domain.Seat;
-import Challenge_summer.bigTraffic.dto.seat.SeatCreateRequest;
-import Challenge_summer.bigTraffic.dto.seat.SeatResponse;
-import Challenge_summer.bigTraffic.repository.SeatRepository;
+import challenge_summer.bigtraffic.domain.Seat;
+import challenge_summer.bigtraffic.dto.seat.SeatCreateRequest;
+import challenge_summer.bigtraffic.dto.seat.SeatResponse;
+import challenge_summer.bigtraffic.repository.SeatRepository;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -25,8 +25,7 @@ public class SeatService {
 
     @Transactional
     public void SeatCreate(SeatCreateRequest seatCreateRequest) {
-        Seat seat = new Seat();
-        seat.setSeatName(seatCreateRequest.name());
+        Seat seat = new Seat(seatCreateRequest.name());
         seatRepository.create(seat);
     }
 

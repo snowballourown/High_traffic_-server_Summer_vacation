@@ -1,4 +1,4 @@
-package Challenge_summer.bigTraffic.common.exception;
+package challenge_summer.bigtraffic.common.exception;
 
 
 public class ErrorResponse {
