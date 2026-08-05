@@ -20,13 +20,13 @@ public class Seat_hold {
     private Long Id;
 
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @Getter
     @JoinColumn(name = "SCHEDULE_SEAT_ID")
     private ScheduleSeat scheduleSeat;
 
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @Getter
     @JoinColumn(name = "MEMBER_ID")
     private Member member;

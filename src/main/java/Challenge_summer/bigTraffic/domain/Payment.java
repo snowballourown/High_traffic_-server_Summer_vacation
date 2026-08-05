@@ -19,9 +19,10 @@ public class Payment {
     private Long id;
 
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "SEAT_HOLD_ID", unique = true)    //좌석 점유가 같으면 안되니까
     private Seat_hold seatHold;
+
 
     @Enumerated(EnumType.STRING)
     private PaymentStatus paymentStatus;

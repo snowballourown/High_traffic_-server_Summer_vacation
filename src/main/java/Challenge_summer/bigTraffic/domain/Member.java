@@ -21,7 +21,6 @@ public class Member {  //index까지 적는편이라함
         return id;
     }
 
-
     public String getName() {
         return name;
     }

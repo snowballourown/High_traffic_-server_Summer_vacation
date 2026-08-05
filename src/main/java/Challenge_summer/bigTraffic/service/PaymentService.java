@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -30,11 +31,25 @@ public class PaymentService {
     public PaymentResponse createPayment(PaymentRequest paymentRequest) {
 
         Seat_hold seatHold =
-                seatHoldRepository.findById(paymentRequest.holdId())
+                seatHoldRepository.findByIdWithPessimisticLock(paymentRequest.holdId())
                         .orElseThrow(() ->
                                 new IllegalArgumentException(
                                         "해당 선점 정보가 없습니다."
                                 ));
+
+        Optional<Payment> existingPayment =
+                paymentRepository.findBySeatHoldId(seatHold.getId());
+
+        if (existingPayment.isPresent()) {
+            Payment payment = existingPayment.get();
+
+            return new PaymentResponse(
+                    payment.getId(),
+                    payment.getPaymentStatus()
+            );
+        }
+
+
 
         // 케이스 1:
 // 선점 만료 시간이 이미 지났지만,
@@ -62,15 +77,16 @@ public class PaymentService {
         }
 
 
-// 케이스 3:
-// 만료 시간은 지나지 않았고 CONFIRMED도 아니지만,
-// 좌석 상태가 HELD가 아닌 경우다.
-//
-// 현재 Status가 AVAILABLE, HELD, CONFIRMED 세 개뿐이므로
-// 위에서 CONFIRMED를 처리한 뒤 이 조건에 걸리면 AVAILABLE이다.
-//
-// 선점이 해제됐거나, 결제 실패 등으로 좌석이 다시
-// 예약 가능한 상태가 된 경우이므로 결제를 진행하면 안 된다.
+        // 케이스 3:
+        // 만료 시간은 지나지 않았고 CONFIRMED도 아니지만,
+        // 좌석 상태가 HELD가 아닌 경우다.
+        //
+        // 현재 Status가 AVAILABLE, HELD, CONFIRMED 세 개뿐이므로
+        // 위에서 CONFIRMED를 처리한 뒤 이 조건에 걸리면 AVAILABLE이다.
+        //
+        // 선점이 해제됐거나, 결제 실패 등으로 좌석이 다시
+        // 예약 가능한 상태가 된 경우이므로 결제를 진행하면 안 된다.
+
         if (seatHold.getScheduleSeat().getStatus() != Status.HELD) {
             throw new IllegalArgumentException(
                     "현재 유효한 선점 상태가 아닙니다."
@@ -78,6 +94,9 @@ public class PaymentService {
         }
 
 
+
+
+        // 존재안할시 값저장
         Payment payment = new Payment(seatHold);
 
         payment.success(); // 결제성공상태변경
@@ -87,12 +106,16 @@ public class PaymentService {
         Reservation reservation = new Reservation(payment);
         reservationRepository.create(reservation);
 
+
+
         return new PaymentResponse(
                 payment.getId(),
-                reservation.getId(),
                 payment.getPaymentStatus()
         );
     }
+
+
+
 
 
 

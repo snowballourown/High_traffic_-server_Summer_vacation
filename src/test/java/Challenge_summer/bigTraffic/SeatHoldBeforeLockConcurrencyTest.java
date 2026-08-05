@@ -25,7 +25,6 @@ public class SeatHoldBeforeLockConcurrencyTest {
      Seat_holdService seatHoldService;
     @Autowired
     ScheduleSeatRepository scheduleSeatRepository;
-
     @Autowired
     MemberRepository memberRepository;
     @Autowired

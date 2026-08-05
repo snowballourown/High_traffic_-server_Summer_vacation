@@ -4,6 +4,7 @@ package challenge_summer.bigtraffic.repository;
 import challenge_summer.bigtraffic.domain.Seat_hold;
 import challenge_summer.bigtraffic.domain.Status;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.LockModeType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -49,4 +50,19 @@ public class Seat_holdRepository {
     public Optional<Seat_hold> findById(Long id) {
         return Optional.ofNullable(em.find(Seat_hold.class, id));
     }
+
+
+    public Optional<Seat_hold> findByIdWithPessimisticLock(Long id) {
+        return Optional.ofNullable(
+                em.find(
+                        Seat_hold.class,
+                        id,
+                        LockModeType.PESSIMISTIC_WRITE
+                )
+        );
+    }
+
+
+
+
 }
