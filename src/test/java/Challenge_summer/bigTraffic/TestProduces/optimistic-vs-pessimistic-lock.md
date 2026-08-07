@@ -218,15 +218,15 @@ JPA가 PESSIMISTIC_WRITE를 요청
 ```
 ### 8.결과 
 - 낙관적 락 (@Version 추가)
-![img.png](img.png)
-- ![img_1.png](img_1.png)
+![img.png](../img.png)
+- ![img_1.png](../img_1.png)
 
 
 - 비관적 락()
-![img_2.png](img_2.png)
-- ![img_3.png](img_3.png)
-- ![img_4.png](img_4.png)
-- ![img_5.png](img_5.png)
+![img_2.png](../img_2.png)
+- ![img_3.png](../img_3.png)
+- ![img_4.png](../img_4.png)
+- ![img_5.png](../img_5.png)
 
 ### -> SQL 표시
 
@@ -273,6 +273,6 @@ IllegalArgumentException: 선점할 수 없는 좌석입니다.
 
 
 최종 결과 
-![img_6.png](img_6.png)
+![img_6.png](../img_6.png)
 
 

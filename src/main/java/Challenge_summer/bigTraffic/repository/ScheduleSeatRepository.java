@@ -42,6 +42,11 @@ public class ScheduleSeatRepository {
     }
 
 
+    public Long count() {
+        return em.createQuery("select count(s) from ScheduleSeat s", Long.class).getSingleResult();
+    }
+
+
 
 
 

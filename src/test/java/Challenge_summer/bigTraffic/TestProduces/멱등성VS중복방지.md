@@ -13,9 +13,9 @@
 중복 방지:   
 -> 1.첫번째 요청 성공 , 2. 두번째 요청 실패 에러 답변 
 
-![img_7.png](img_7.png)
+![img_7.png](../img_7.png)
 
-![img_8.png](img_8.png) ->DataIntegrityViolationException 에러내뱉음 
+![img_8.png](../img_8.png) ->DataIntegrityViolationException 에러내뱉음 
 
   
 멱등성 : 
@@ -24,7 +24,7 @@
 - 손님이 에러를 받으면 결제실패라고 판단가능 그리하여 멱등성이 더 결제 API에 맞다고 판단 
 
 
-![img_9.png](img_9.png)
+![img_9.png](../img_9.png)
 
 seatHold에 findByIdWithPessimisticLock으로 조회하면서 락을걸어
 이 트랜젝션이  끝날떄까지 lock을 할당받아 다른 쓰레드가 대기시킴

@@ -2,6 +2,7 @@ package challenge_summer.bigtraffic;
 
 
 import challenge_summer.bigtraffic.domain.*;
+import challenge_summer.bigtraffic.dto.ReservationResponse;
 import challenge_summer.bigtraffic.repository.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,8 @@ import org.springframework.transaction.support.TransactionTemplate;
 
 import java.time.LocalDateTime;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 public class ReservationNPlusOneTest {
@@ -104,4 +107,51 @@ public class ReservationNPlusOneTest {
             return null;
         });
     }
+
+    @Test
+    void 페치조인으로_예약과_연관엔티티를_한번에_조회한다() {
+        Long memberId = create10MemberReservation();
+
+        transactionTemplate.execute(status -> {
+            List<Reservation> reservations =
+                    reservationRepository.findByMemberIdWithFetchJoin(memberId);
+
+            for (Reservation reservation : reservations) {
+                Payment payment = reservation.getPayment();
+
+                // Payment 프록시 초기화
+                System.out.println(payment.getPaymentStatus());
+
+                // SeatHold 프록시 초기화
+                System.out.println(payment.getSeatHold().getExpiresAt());
+
+                // Member 프록시 초기화
+                System.out.println(
+                        payment.getSeatHold().getMember().getName()
+                );
+            }
+            assertEquals(10, reservations.size());
+            return null;
+        });
+
+    }
+
+
+
+    @Test
+    void DTO_직접_조회로_필요한_컬럼만_한번에_조회한다() {
+        Long memberId = create10MemberReservation();
+
+        List<ReservationResponse> responses =
+                transactionTemplate.execute(status ->
+                        reservationRepository.findResponseByMemberId(memberId)
+                );
+
+        assertEquals(10, responses.size());
+
+        for (ReservationResponse response : responses) {
+            System.out.println(response);
+        }
+    }
+
 }

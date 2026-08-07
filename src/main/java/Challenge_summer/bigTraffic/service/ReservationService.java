@@ -16,15 +16,7 @@ public class ReservationService {
 
     @Transactional(readOnly = true)
     public List<ReservationResponse> findMemberReservations(Long memberId) {
-        return reservationRepository.findByMemberId(memberId).stream().map(
-                reservation ->
-                        new ReservationResponse(
-                                reservation.getId(),
-                                reservation.getPayment().getId(),
-                                reservation.getPayment().getSeatHold().getMember().getId()
-                                , reservation.getReservedAt())
-        ).toList();
-
+        return reservationRepository.findResponseByMemberId(memberId);
     }
 
 }
