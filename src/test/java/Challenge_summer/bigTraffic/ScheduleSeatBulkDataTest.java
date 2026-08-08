@@ -42,7 +42,120 @@ public class ScheduleSeatBulkDataTest {
 
     @Test
     @Transactional
-    void 스케줄좌석_만개를_생성한다() {
+    void index_적용x() {
+
+//        /*여기서 굳이 @Transational로 바꿔서 실험한 이유
+        //        @Transactional
+        //→ 메서드 전체를 하나의 트랜잭션으로 묶을 때
+        //→ 단순한 서비스 로직이나 단일 흐름 테스트
+        //
+        //TransactionTemplate
+        //→ 트랜잭션 시작과 종료 위치를 직접 정할 때
+        //→ 여러 트랜잭션 분리
+        //→ 여러 스레드에 각각 트랜잭션 적용
+        //→ 중간 Commit 또는 Rollback 제어
+//        */
+        createScheduleSeat100();
+        em.flush();
+
+
+        List<?> result = em.createNativeQuery(
+                """
+                EXPLAIN ANALYZE
+                SELECT *
+                FROM schedule_seat
+                WHERE status = 'HELD'
+                """
+        ).getResultList();
+
+        result.forEach(System.out::println);
+
+    }
+
+    @Test
+    @Transactional
+    void 스케줄좌석_만개를_생성한다_index_적용후() {
+
+//        /*여기서 굳이 @Transational로 바꿔서 실험한 이유
+        //        @Transactional
+        //→ 메서드 전체를 하나의 트랜잭션으로 묶을 때
+        //→ 단순한 서비스 로직이나 단일 흐름 테스트
+        //
+        //TransactionTemplate
+        //→ 트랜잭션 시작과 종료 위치를 직접 정할 때
+        //→ 여러 트랜잭션 분리
+        //→ 여러 스레드에 각각 트랜잭션 적용
+        //→ 중간 Commit 또는 Rollback 제어
+//        */
+        createScheduleSeat100();
+        em.flush();
+
+        em.createNativeQuery(
+                """
+                CREATE INDEX idx_schedule_seat_status
+                ON schedule_seat(status)
+                """
+        ).executeUpdate(); //index이름를 설정하고 on뒤에 앤티티이름 (인덱스로 엔트리뷰트)
+
+
+
+
+        List<?> result = em.createNativeQuery(
+                """
+                EXPLAIN ANALYZE
+                SELECT *
+                FROM schedule_seat
+                WHERE status = 'HELD'
+                """
+        ).getResultList();
+
+        result.forEach(System.out::println);
+    }
+    @Test
+    @Transactional
+    void 스케줄좌석_만개를_생성한다_index_적용후_AVAILABLE() {
+
+//        /*여기서 굳이 @Transational로 바꿔서 실험한 이유
+        //        @Transactional
+        //→ 메서드 전체를 하나의 트랜잭션으로 묶을 때
+        //→ 단순한 서비스 로직이나 단일 흐름 테스트
+        //
+        //TransactionTemplate
+        //→ 트랜잭션 시작과 종료 위치를 직접 정할 때
+        //→ 여러 트랜잭션 분리
+        //→ 여러 스레드에 각각 트랜잭션 적용
+        //→ 중간 Commit 또는 Rollback 제어
+//        */
+        createScheduleSeat100();
+        em.flush();
+
+        em.createNativeQuery(
+                """
+                CREATE INDEX idx_schedule_seat_status
+                ON schedule_seat(status)
+                """
+        ).executeUpdate(); //index이름를 설정하고 on뒤에 앤티티이름 (인덱스로 엔트리뷰트)
+
+
+
+        List<?> result = em.createNativeQuery(
+                """
+                EXPLAIN ANALYZE
+                SELECT *
+                FROM schedule_seat
+                WHERE status = 'AVAILABLE'
+                """
+        ).getResultList();
+
+        result.forEach(System.out::println);
+    }
+
+
+
+
+
+
+    private void createScheduleSeat100() {
         Event event = new Event("최초 리센느 팬콘서트");
         eventRepository.CreateEvent(event);
 
@@ -90,26 +203,7 @@ public class ScheduleSeatBulkDataTest {
         assertEquals(10_000L, count);
         System.out.println("ScheduleSeat 개수 = " + count);
         System.out.println("생성 시간 = " + elapsed + "ms");
-
-
-        em.flush();
-
-
-        List<?> result = em.createNativeQuery(
-                """
-                EXPLAIN ANALYZE
-                SELECT *
-                FROM schedule_seat
-                WHERE status = 'HELD'
-                """
-        ).getResultList();
-
-        result.forEach(System.out::println);
-
     }
-
-
-
 
 
 }
