@@ -30,4 +30,7 @@ public class Schedule {
         this.event = event;
         this.startTime = startTime;
     }
+
+
+
 }
