@@ -1,6 +1,6 @@
 # 인덱스의 랜덤, 순차 Input/Output 
-![img_20.png](img_20.png)
-![img_33.png](img_33.png)
+![img_20.png](image/img_20.png)
+![img_33.png](image/img_33.png)
 여러 섹터 → DB 페이지 하나    
 DB 페이지 하나 → 일반적으로 여러 행
 
@@ -40,7 +40,7 @@ ScheduleSeat 행 1개 필요
 16KB 페이지 전체 읽기     
 ↓    
 페이지 안에서 원하는 행 찾기   
-![img_21.png](img_21.png)
+![img_21.png](image/img_21.png)
 ---
 
 
@@ -51,25 +51,25 @@ ScheduleSeat 행 1개 필요
 
 
 ---
-![img_23.png](img_23.png)
+![img_23.png](image/img_23.png)
 
 
-![img_24.png](img_24.png)
+![img_24.png](image/img_24.png)
 
 
-![img_26.png](img_26.png)
+![img_26.png](image/img_26.png)
 
 
-![img_27.png](img_27.png)
+![img_27.png](image/img_27.png)
 
-![img_28.png](img_28.png)
+![img_28.png](image/img_28.png)
 
-![img_30.png](img_30.png)
+![img_30.png](image/img_30.png)
 
 
-![img_31.png](img_31.png)
+![img_31.png](image/img_31.png)
 
-![img_32.png](img_32.png)
+![img_32.png](image/img_32.png)
 
 결국 PK로 다시접근해서 검색하네? 보조 인덱스로 검색해서 PK들을 조회한다음 다시 PK로 객체들을 다시찾는과정이네? 
 

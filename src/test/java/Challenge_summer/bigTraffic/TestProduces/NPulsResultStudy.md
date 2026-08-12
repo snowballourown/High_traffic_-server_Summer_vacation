@@ -1,6 +1,6 @@
 ## 0단계: 연관 엔티티를 LAZY로 설정
 
-![img_10.png](../img_10.png)
+![img_10.png](../image/img_10.png)
 
 연관 엔티티를 LAZY로 설정하면 처음부터 실제 엔티티 전체를 조회하지 않고,
 해당 연관관계에는 초기화되지 않은 프록시 객체가 들어간다.
@@ -42,7 +42,7 @@ LazyInitializationException
 반복문에서 각 Reservation의 연관 엔티티에 접근하면서
 추가 SELECT 쿼리가 N번 발생하는 문제다.
 
-![img_11.png](../img_11.png)
+![img_11.png](../image/img_11.png)
 
 예를 들어 Reservation 10개를 조회하고 각각의 Payment 상태를 사용하면:
 
@@ -53,7 +53,7 @@ LazyInitializationException
 ##### 이유 : DB와 애플리케이션 사이의 통신 횟수가 데이터 개수에 따라 계속 증가하기 때문
 
 
-![img_12.png](../img_12.png)
+![img_12.png](../image/img_12.png)
 
 
 4가지의 해결방법있음    
@@ -67,19 +67,19 @@ LazyInitializationException
 
 
 1. fetch join으로 추가 query가 안나감 그로인해  DB에 쿼리를 1번으로 DB에게 영향을 많이주지않음 
-![img_6.png](img_6.png)
+![img_6.png](image/img_6.png)
 
 
 
 2.현재 예약 목록처럼 ID와 예약 시간만 반환하는 조회 전용 API에는 DTO 직접 조회가 더 가볍습니다.
-![img_7.png](img_7.png) fetch에 비해 더가벼움 
+![img_7.png](image/img_7.png) fetch에 비해 더가벼움 
 결과는 위와(1번) 동일하게 나옴 
 
 
 
-![img_8.png](img_8.png)
+![img_8.png](image/img_8.png)
 -> 
-![img_9.png](img_9.png)
+![img_9.png](image/img_9.png)
 리펙토링에도 효과적임 
 
 

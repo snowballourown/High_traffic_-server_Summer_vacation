@@ -1,25 +1,25 @@
-![img_10.png](img_10.png).
-![img_11.png](img_11.png)
+![img_10.png](image/img_10.png).
+![img_11.png](image/img_11.png)
 실제 하이버네이트는 이렇게 SQL   
 ->   
 여기서 의문점 그냥 jpql를 sql로 쓴거아니야? 
 
 차이점을 알아보자  
-![img_12.png](img_12.png)
+![img_12.png](image/img_12.png)
 그렇다 맨위에대한 결과가 객체@해쉬값이 나오는이유가 바로 그거다  
 저걸 객체로 실행계획을 써놓으것 
 
-![img_13.png](img_13.png)
+![img_13.png](image/img_13.png)
 #### explain analzy를 사용한 이후  
 
 
-![img_14.png](img_14.png)
+![img_14.png](image/img_14.png)
 
 #### 2개의 문장이 떳다 해석해보자면 
 
 -----
 첫번쨰로 먼저 
-![img_15.png](img_15.png)
+![img_15.png](image/img_15.png)
 으로 스캔을 먼저함 
 조건검사로 스캔한거기반해서 결과를 산출
 

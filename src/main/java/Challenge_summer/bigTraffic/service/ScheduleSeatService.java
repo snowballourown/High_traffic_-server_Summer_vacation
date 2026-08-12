@@ -51,8 +51,8 @@ public class ScheduleSeatService {
 
 
     @Transactional(readOnly = true)
-    public List<ScheduleSeatResponse> findAll() {
-        return scheduleSeatRepository.findAll().stream().map(scheduleSeat ->
+    public List<ScheduleSeatResponse> findAvailableSeats(Long id) { //좌석한게 조회
+        return scheduleSeatRepository.findAvailableByScheduleId(id).stream().map(scheduleSeat ->
                         new ScheduleSeatResponse(scheduleSeat.getId(),
                                 scheduleSeat.getSchedule().getId(),
                                 scheduleSeat.getSeat().getId(),

@@ -8,10 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,10 +23,13 @@ public class ScheduleSeatController {
     // List
 
     @ResponseBody
-    @GetMapping("/scheduleSeat")
-    public List<ScheduleSeatResponse> findAll() {
-        return scheduleSeatService.findAll();
+    @GetMapping("/schedules/{scheduleId}/seats") // 회차 좌석 목록
+    public List<ScheduleSeatResponse> findAvailableSeats(
+            @PathVariable("scheduleId") Long scheduleId
+    ) {
+        return scheduleSeatService.findAvailableSeats(scheduleId);
     }
+
 
 
     @PostMapping("/scheduleSeat")

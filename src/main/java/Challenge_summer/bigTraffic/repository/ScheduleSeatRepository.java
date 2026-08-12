@@ -31,6 +31,23 @@ public class ScheduleSeatRepository {
                 .getResultList();
     }
 
+    public List<ScheduleSeat> findAvailableByScheduleId(Long scheduleId) {
+        return em.createNativeQuery(
+                        """
+                        SELECT *
+                        FROM schedule_seat
+                        WHERE schedule_id = :scheduleId
+                          AND status = 'AVAILABLE'
+                        ORDER BY schedule_seat_id
+                        """,
+                        ScheduleSeat.class
+                )
+                .setParameter("scheduleId", scheduleId)
+                .getResultList();
+    }
+
+
+
     public Optional<ScheduleSeat> findByIdWithPessimisticLock(Long id) {
         return Optional.ofNullable(
                 em.find(

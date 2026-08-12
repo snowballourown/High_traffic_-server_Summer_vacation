@@ -10,7 +10,7 @@
 - 성공 수: 10
 - 실패 수: 90
 - SeatHold 생성 수: 10
-![img.png](img.png)
+![img.png](image/img.png)
 - 
 ## 원인
 여러 스레드가 동시에 같은 좌석 상태를 AVAILABLE로 조회했다.

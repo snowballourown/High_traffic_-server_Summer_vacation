@@ -14,17 +14,17 @@
 #### EAGER가 SQL Join을 보장하지 않는다는 점
 
 ##### 2가지의 경우로 쿼리가 나갈수도있음(JPQL없이 엔티티 조회했을경우)
-![img_4.png](img_4.png)
+![img_4.png](image/img_4.png)
 JPQL 없이 엔티티를 조회해도 Hibernate가 매핑 정보를 보고 
 SQL을 만들며, 연관 엔티티를 JOIN 또는 추가 SELECT 방식으로 가져올 수 있다”**
 
 
-![img_2.png](img_2.png)
+![img_2.png](image/img_2.png)
 
 이게 첫번쨰 경우 (조인을 한 경우) 
 
 
-![img_3.png](img_3.png)
+![img_3.png](image/img_3.png)
 
 이게 두번쨰 경우()
 
@@ -32,4 +32,4 @@ EAGER에서도 N+1 가능함
 
 ---------- 
 #### JPQL에 fetch조인을 명시한경우
-![img_5.png](img_5.png)
+![img_5.png](image/img_5.png)
