@@ -22,7 +22,7 @@ public class SeatHoldExpirationScheduler {
         this.seatHoldRepository = seatHoldRepository;
     }
 
-    @Scheduled(fixedDelay = 1000) //1초마다 실행 1000ms
+//    @Scheduled(fixedDelay = 1000) //1초마다 실행 1000ms
     @Transactional
     public void releaseExpiredHolds() {
 /*

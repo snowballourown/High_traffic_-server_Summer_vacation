@@ -1,9 +1,14 @@
 import http from 'k6/http';
 import { check, sleep } from 'k6';
 
-export const options = { //spike
-    vus: 500, // 가상 사용자 -> 동시에 행동하는 사용자수
-    duration : '2m', // 총 한번 실행
+export const options = {
+    stages: [
+        { duration: '30s', target: 100 },
+        { duration: '30s', target: 300 },
+        { duration: '30s', target: 500 },
+        { duration: '1m', target: 500 },
+        { duration: '30s', target: 0 },
+    ],
 };
 export default function () {
     const response = http.get(

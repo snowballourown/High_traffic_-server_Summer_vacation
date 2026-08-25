@@ -2,6 +2,8 @@ package challenge_summer.bigtraffic.repository;
 
 
 import challenge_summer.bigtraffic.domain.ScheduleSeat;
+import challenge_summer.bigtraffic.domain.Status;
+import challenge_summer.bigtraffic.dto.scheduleseat.ScheduleSeatResponse;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.LockModeType;
 import lombok.AllArgsConstructor;
@@ -31,18 +33,38 @@ public class ScheduleSeatRepository {
                 .getResultList();
     }
 
-    public List<ScheduleSeat> findAvailableByScheduleId(Long scheduleId) {
-        return em.createNativeQuery(
+//    public List<ScheduleSeat> findAvailableByScheduleId(Long scheduleId) {
+//        return em.createNativeQuery(
+//                        """
+//                        SELECT *
+//                        FROM schedule_seat
+//                        WHERE schedule_id = :scheduleId
+//                          AND status = 'AVAILABLE'
+//                        ORDER BY schedule_seat_id
+//                        """,
+//                        ScheduleSeat.class
+//                )
+//                .setParameter("scheduleId", scheduleId)
+//                .getResultList();
+//    }
+    public List<ScheduleSeatResponse> findAvailableByScheduleId(Long scheduleId) {
+        return em.createQuery(
                         """
-                        SELECT *
-                        FROM schedule_seat
-                        WHERE schedule_id = :scheduleId
-                          AND status = 'AVAILABLE'
-                        ORDER BY schedule_seat_id
+                        select new challenge_summer.bigtraffic.dto.scheduleseat.ScheduleSeatResponse(
+                        ss.id,
+                        ss.schedule.id,
+                        ss.seat.id,
+                        ss.status
+                        )
+                        from ScheduleSeat ss
+                        where ss.schedule.id = :scheduleId
+                         and ss.status = :status
+                        order by ss.id
                         """,
-                        ScheduleSeat.class
+                        ScheduleSeatResponse.class
                 )
                 .setParameter("scheduleId", scheduleId)
+                .setParameter("status", Status.AVAILABLE)
                 .getResultList();
     }
 
